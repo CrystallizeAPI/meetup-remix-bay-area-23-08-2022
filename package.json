@@ -7,7 +7,7 @@
     "scripts": {
         "build": "npm run build:css && remix build",
         "build:css": "tailwindcss -m -i .src/styles/root.css -o src/styles/tailwind.css",
-        "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+        "dev": "concurrently \"npm run dev:css\" \"PORT=3042 remix dev\"",
         "dev:css": "tailwindcss -w -i ./src/styles/root.css -o src/styles/tailwind.css",
         "start": "remix-serve build"
     },

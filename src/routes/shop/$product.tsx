@@ -15,10 +15,11 @@ export const loader: LoaderFunction = async ({ params }) => {
         });
 };
 
-export const headers: HeadersFunction = ({ loaderHeaders }) => {
+export const headers: HeadersFunction = ({ loaderHeaders, parentHeaders }) => {
     return {
         "Cache-Control": loaderHeaders.get("Cache-Control") || "public, max-age=60, shared-max-age=3633, stale-while-revalidate=60",
         "Surrogate-Key": loaderHeaders.get("Surrogate-Key") || "",
+        "Link": parentHeaders.get("Link") as string,
     }
 };
 

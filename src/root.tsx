@@ -1,4 +1,4 @@
-import type { ErrorBoundaryComponent, MetaFunction } from "@remix-run/node";
+import type { ErrorBoundaryComponent, HeadersFunction, MetaFunction } from "@remix-run/node";
 import {
     Link,
     Links,
@@ -21,6 +21,12 @@ export const meta: MetaFunction = () => ({
 export function links() {
     return [{ rel: "stylesheet", href: tailwindStyles }];
 }
+
+export const headers: HeadersFunction = () => {
+    return {
+        Link: `<${tailwindStyles}>; rel=preload; as=style`,
+    };
+};
 
 export default function App() {
     return (
@@ -63,7 +69,7 @@ export default function App() {
                 </div>
                 <ScrollRestoration />
                 <Scripts />
-                <LiveReload />
+                <LiveReload port={443} />
             </body>
         </html>
     );

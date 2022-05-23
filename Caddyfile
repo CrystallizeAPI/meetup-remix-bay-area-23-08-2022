@@ -1,0 +1,10 @@
+remixconf.rocks {
+    tls ./domains.pem ./key.pem
+    push
+    @websockets {
+        header Connection *Upgrade*
+        header Upgrade websocket
+    }
+    reverse_proxy @websockets localhost:3043
+    reverse_proxy 127.0.0.1:3042
+}
