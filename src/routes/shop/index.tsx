@@ -11,6 +11,7 @@ export const loader = async () => {
         {
             headers: {
                 "Cache-Control": "public, max-age=60, shared-max-age=1812, stale-while-revalidate=60",
+                "Surrogate-Key": "shop",
             }
         });
 };
@@ -18,6 +19,7 @@ export const loader = async () => {
 export const headers: HeadersFunction = () => {
     return {
         "Cache-Control": "public, max-age=60, shared-max-age=3615, stale-while-revalidate=60",
+        "Surrogate-Key": "shop",
     }
 };
 
