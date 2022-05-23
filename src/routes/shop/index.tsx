@@ -1,5 +1,5 @@
 import { Product } from "@crystallize/js-api-client";
-import { json } from "@remix-run/node";
+import { HeadersFunction, json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { fetchRandomProductsAtPath } from "~/models/products";
 import { Image } from "@crystallize/reactjs-components";
@@ -7,7 +7,18 @@ import { Image } from "@crystallize/reactjs-components";
 export const loader = async () => {
     return json<{ products: Product[] }>({
         products: await fetchRandomProductsAtPath('/shop')
-    });
+    },
+        {
+            headers: {
+                "Cache-Control": "public, max-age=60, shared-max-age=1812, stale-while-revalidate=60",
+            }
+        });
+};
+
+export const headers: HeadersFunction = () => {
+    return {
+        "Cache-Control": "public, max-age=60, shared-max-age=3615, stale-while-revalidate=60",
+    }
 };
 
 export default function Product() {

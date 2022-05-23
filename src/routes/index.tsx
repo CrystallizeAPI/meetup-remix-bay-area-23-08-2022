@@ -1,4 +1,11 @@
+import { HeadersFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
+
+export const headers: HeadersFunction = () => {
+    return {
+        "Cache-Control": "public, max-age=60, shared-max-age=3604, stale-while-revalidate=60",
+    }
+};
 
 export default function Index() {
     return (
