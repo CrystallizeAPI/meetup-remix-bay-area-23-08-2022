@@ -9,7 +9,7 @@ export const loader: LoaderFunction = async ({ params }) => {
     return json({ product },
         {
             headers: {
-                "Cache-Control": "public, max-age=60, shared-max-age=3022, stale-while-revalidate=60",
+                "Cache-Control": "public, max-age=60, s-maxage=3022, stale-while-revalidate=60",
                 "Surrogate-Key": `product, product-${product.id}`,
             }
         });
@@ -17,8 +17,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 
 export const headers: HeadersFunction = ({ loaderHeaders }) => {
     return {
-        "Cache-Control": loaderHeaders.get("Cache-Control") || "public, max-age=60, shared-max-age=3633, stale-while-revalidate=60",
-        "Surrogate-Key": loaderHeaders.get("Surrogate-Key") || "",
+        "Cache-Control": loaderHeaders.get("Cache-Control") || "public, max-age=60, s-maxage=3633, stale-while-revalidate=60",
     }
 };
 
