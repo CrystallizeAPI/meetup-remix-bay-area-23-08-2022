@@ -8,14 +8,14 @@ export const loader: LoaderFunction = async ({ params }) => {
     return json({ product: await fetchProduct(`/shop/${params.product!}`) },
         {
             headers: {
-                "Cache-Control": "public, max-age=60, shared-max-age=3022, stale-while-revalidate=60",
+                "Cache-Control": "public, max-age=60, s-maxage=3022, stale-while-revalidate=60",
             }
         });
 };
 
 export const headers: HeadersFunction = ({ loaderHeaders }) => {
     return {
-        "Cache-Control": loaderHeaders.get("Cache-Control") || "public, max-age=60, shared-max-age=3633, stale-while-revalidate=60",
+        "Cache-Control": loaderHeaders.get("Cache-Control") || "public, max-age=60, s-maxage=3633, stale-while-revalidate=60",
     }
 };
 
