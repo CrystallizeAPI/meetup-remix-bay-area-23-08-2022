@@ -22,7 +22,7 @@ export const headers: HeadersFunction = () => {
 };
 
 export default function Product() {
-    const { products } = useLoaderData<{ products: Product[] }>();
+    const { products } = useLoaderData() as { products: Product[] };
     return (
         <main className="lg:w-content w-full mx-auto flex flex-col mt-20 gap-5 items-center justify-center">
             <h1 className="font-extrabold text-5xl mb-3">Product List</h1>
