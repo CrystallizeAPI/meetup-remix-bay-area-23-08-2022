@@ -9,7 +9,7 @@ import {
     ScrollRestoration,
     useCatch,
 } from "@remix-run/react";
-import { CatchBoundaryComponent } from "@remix-run/react/routeModules";
+import { CatchBoundaryComponent } from "@remix-run/react/dist/routeModules";
 import tailwindStyles from "./styles/tailwind.css";
 
 export const meta: MetaFunction = () => ({

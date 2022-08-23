@@ -22,7 +22,7 @@ export const headers: HeadersFunction = ({ loaderHeaders }) => {
 };
 
 export default function Index() {
-    const { product } = useLoaderData<{ product: ProductType }>();
+    const { product } = useLoaderData() as { product: ProductType };
     return (
         <div>
             <Product product={product} />
